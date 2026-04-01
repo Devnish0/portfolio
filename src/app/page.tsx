@@ -9,9 +9,24 @@ import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
-import { ArrowUpRight } from "lucide-react";
-
+import { ArrowUpRight, Calendar, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 const BLUR_FADE_DELAY = 0.04;
+const Formatter = (str: any) => {
+  const parts = str.split(/(\[.*?\])/g);
+
+  return parts.map((parts: any, index: any) => {
+    if (parts.startsWith("[") && parts.endsWith("]")) {
+      return (
+        <span key={index} className="text-foreground/85 font-medium">
+          {parts.slice(1, -1)}
+        </span>
+      );
+    }
+    return parts;
+  });
+};
+// console.log(Formatter("Hi, I'm [Nishank]"));
 
 export default function Page() {
   return (
@@ -26,12 +41,40 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
-              <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
+              {/* <BlurFadeText
+                className="text-muted-foreground max-w-150 md:text-lg lg:text-xl"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
-              />
+              /> */}
+              <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
+                <div className="text-muted-foreground max-w-150 md:text-lg lg:text-xl">
+                  {Formatter(DATA.description)}
+                </div>
+                <div className="text-muted-foreground max-w-150 mt-3 md:text-lg lg:text-xl">
+                  {Formatter(DATA.summary)}
+                </div>
+                <div className="text-muted-foreground max-w-150 mt-3 md:text-lg lg:text-xl flex  gap-4">
+                  {/* make it working later */}
+                  {/* <Button variant={"outline"} className="flex gap-3">
+                    <Calendar size={"16px"} />
+                    Book a meet
+                  </Button> */}
+                  <Button className="flex gap-3 cursor-pointer">
+                    <Mail size={"16px"} />
+                    Get in touch
+                  </Button>
+                </div>
+              </BlurFade>
+              {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
+                <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+                  <Markdown>{DATA.summary}</Markdown>
+                </div>
+              </BlurFade> */}
+              {/* <BlurFade delay={BLUR_FADE_DELAY * 3}> */}
+              {/* <h2 className="text-xl font-bold">About</h2> */}
+              {/* </BlurFade> */}
             </div>
+
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
@@ -40,22 +83,23 @@ export default function Page() {
             </BlurFade>
           </div>
         </div>
+        <hr className="h-px my-8 bg-border border-0" />
+        {/* <div>lol</div> */}
       </section>
-      <section id="about">
+
+      {/* <section id="about">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <h2 className="text-xl font-bold">About</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-              <Markdown>
-                {DATA.summary}
-              </Markdown>
+              <Markdown>{DATA.summary}</Markdown>
             </div>
           </BlurFade>
         </div>
-      </section>
-      <section id="work">
+      </section> */}
+      {/* <section id="work">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">Work Experience</h2>
@@ -64,8 +108,8 @@ export default function Page() {
             <WorkSection />
           </BlurFade>
         </div>
-      </section>
-      <section id="education">
+      </section> */}
+      {/* <section id="education">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Education</h2>
@@ -95,7 +139,10 @@ export default function Page() {
                     <div className="flex-1 min-w-0 flex flex-col gap-0.5">
                       <div className="font-semibold leading-none flex items-center gap-2">
                         {education.school}
-                        <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" aria-hidden />
+                        <ArrowUpRight
+                          className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
+                          aria-hidden
+                        />
                       </div>
                       <div className="font-sans text-sm text-muted-foreground">
                         {education.degree}
@@ -112,6 +159,11 @@ export default function Page() {
             ))}
           </div>
         </div>
+      </section> */}
+      <section id="projects">
+        <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <ProjectsSection />
+        </BlurFade>
       </section>
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
@@ -120,20 +172,22 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-2">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+              <BlurFade
+                key={skill.name}
+                delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+              >
                 <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                  <span className="text-foreground text-sm font-medium">{skill.name}</span>
+                  {skill.icon && (
+                    <skill.icon className="size-4 rounded overflow-hidden object-contain" />
+                  )}
+                  <span className="text-foreground text-sm font-medium">
+                    {skill.name}
+                  </span>
                 </div>
               </BlurFade>
             ))}
           </div>
         </div>
-      </section>
-      <section id="projects">
-        <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
-        </BlurFade>
       </section>
       <section id="hackathons">
         <BlurFade delay={BLUR_FADE_DELAY * 13}>
