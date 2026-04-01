@@ -83,16 +83,29 @@ export const DATA = {
     },
   },
 
-  work: [],
+  work: [
+    {
+      company: "Atomic Finance",
+      href: "https://atomic.finance",
+      badges: [],
+      location: "Remote",
+      title: "Bitcoin Protocol Engineer",
+      logoUrl: "/atomic.png",
+      start: "May 2021",
+      end: "Oct 2022",
+      description:
+        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+    },
+  ],
   education: [
-    // {
-    //   school: "Buildspace",
-    //   href: "https://buildspace.so",
-    //   degree: "s3, s4, sf1, s5",
-    //   logoUrl: "/buildspace.jpg",
-    //   start: "2023",
-    //   end: "2024",
-    // },
+    {
+      school: "Buildspace",
+      href: "https://buildspace.so",
+      degree: "s3, s4, sf1, s5",
+      logoUrl: "/buildspace.jpg",
+      start: "2023",
+      end: "2024",
+    },
     // {
     //   school: "University of Waterloo",
     //   href: "https://uwaterloo.ca",
@@ -278,17 +291,17 @@ export const DATA = {
     // },
   ],
   hackathons: [
-    //   {
-    //     title: "Hack Western 5",
-    //     dates: "November 23rd - 25th, 2018",
-    //     location: "London, Ontario",
-    //     description:
-    //       "Developed a mobile application which delivered bedtime stories to children using augmented reality.",
-    //     image:
-    //       "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-western.png",
-    //     mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
-    //     links: [],
-    //   },
+    {
+      title: "Hack Western 5",
+      dates: "November 23rd - 25th, 2018",
+      location: "London, Ontario",
+      description:
+        "Developed a mobile application which delivered bedtime stories to children using augmented reality.",
+      image:
+        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-western.png",
+      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
+      links: [],
+    },
     //   {
     //     title: "Hack The North",
     //     dates: "September 14th - 16th, 2018",
