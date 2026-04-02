@@ -1,47 +1,73 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Nishank’s Portfolio
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+Personal portfolio website built with **Next.js** and **TypeScript**, styled with **Tailwind CSS**, **shadcn/ui**, and **Magic UI**.  
+Live site: https://portfolio-dovy.vercel.app
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+---
 
-# Features
+## Tech Stack
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **UI:** shadcn/ui + Magic UI
+- **Styling:** Tailwind CSS
+- **Content:** MDX / content-collections
+- **Deployment:** Vercel
 
-# Getting Started Locally
+---
 
-1. Clone this repository to your local machine:
+## Customize Content
 
-   ```bash
-   git clone https://github.com/dillionverma/portfolio
-   ```
+Most of the site content (name, links, skills, projects, etc.) is configured here:
 
-2. Move to the cloned directory
+- `src/data/resume.tsx`
 
-   ```bash
-   cd portfolio
-   ```
+Update that file to change:
 
-3. Install dependencies:
+- Profile info (name, location, bio)
+- Social links (GitHub, LinkedIn, X, Email)
+- Skills list
+- Projects / work / education
 
-   ```bash
-   pnpm install
-   ```
+---
 
-4. Start the local Server:
+## Run Locally
 
-   ```bash
-   pnpm dev
-   ```
+### 1) Clone the repo
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+```bash
+git clone https://github.com/Devnish0/portfolio.git
+cd portfolio
+```
 
-# License
+### 2) Install dependencies (pnpm)
 
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+```bash
+pnpm install
+```
+
+### 3) Start the dev server
+
+```bash
+pnpm dev
+```
+
+Then open: `http://localhost:3000`
+
+---
+
+## Scripts
+
+```bash
+pnpm dev      # start local dev server
+pnpm build    # production build
+pnpm start    # run production server
+pnpm lint     # run eslint
+pnpm lint:fix # fix lint issues
+```
+
+---
+
+## License
+
+MIT — see `LICENSE`.

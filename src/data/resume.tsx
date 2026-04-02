@@ -253,6 +253,35 @@ export const DATA = {
       image: "/savora.png",
       video: "",
     },
+    {
+      title: "Zerodha Landing Page Clone",
+      href: "https://zerodha-clone-ten-lake.vercel.app/",
+      dates: "June 2025",
+      active: false,
+      description:
+        "A responsive, pixel-inspired clone of Zerodha’s public-facing landing page built using pure HTML and CSS. The project focuses on clean layout structure, consistent spacing and typography, and recreating common marketing-site sections (hero, feature highlights, navigation, and footer) without any JavaScript frameworks.",
+      technologies: [
+        "HTML5 ",
+        "CSS3 ",
+        "Mobile Responsiveness ",
+        "UI Recreation / Pixel-Style Cloning ",
+        "Git & GitHub ",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://zerodha-clone-ten-lake.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/Devnish0/zerodha-clone",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/zerodha.png",
+      video: "",
+    },
     // {
     //   title: "Magic UI",
     //   href: "https://magicui.design",
