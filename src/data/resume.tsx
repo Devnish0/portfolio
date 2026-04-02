@@ -11,7 +11,6 @@ import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
-import emergency from "../media/emergency.png";
 
 export const DATA = {
   name: "Nishank (Devnish)",
@@ -162,7 +161,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: emergency.src,
+      image: "/emergency.png",
 
       video: "",
     },
