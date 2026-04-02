@@ -163,6 +163,8 @@ export const DATA = {
         },
       ],
       image: emergency.src,
+
+      video: "",
     },
     {
       title: "Restaurant website",
@@ -194,6 +196,8 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
+      image: "",
+      video: "",
     },
     // {
     //   title: "Magic UI",
