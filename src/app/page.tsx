@@ -3,6 +3,20 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
+
+import { GitHubCalendar } from "react-github-calendar";
+
+import { Dock, DockIcon } from "@/components/magicui/dock";
+
+import { ModeToggle } from "@/components/mode-toggle";
+import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipArrow,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 import Link from "next/link";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
@@ -53,16 +67,36 @@ export default function Page() {
                 <div className="text-muted-foreground max-w-150 mt-3 md:text-lg lg:text-xl">
                   {Formatter(DATA.summary)}
                 </div>
-                <div className="text-muted-foreground max-w-150 mt-3 md:text-lg lg:text-xl flex  gap-4">
+                <div className="text-muted-foreground max-w-150 mt-3 md:text-lg lg:text-xl flex justify-between  gap-4">
                   {/* make it working later */}
                   {/* <Button variant={"outline"} className="flex gap-3">
                     <Calendar size={"16px"} />
                     Book a meet
                   </Button> */}
-                  <Button className="flex gap-3 cursor-pointer">
+                  <Button className="flex  gap-3 cursor-pointer">
                     <Mail size={"16px"} />
                     Get in touch
                   </Button>
+                  {/* <Dock>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
+                          <ModeToggle className="size-full cursor-pointer" />
+                        </DockIcon>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        side="top"
+                        sideOffset={8}
+                        className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+                      >
+                        <p>Theme</p>
+                        <TooltipArrow className="fill-primary" />
+                      </TooltipContent>
+                    </Tooltip>
+                  </Dock> */}
+                  <div className="border border-primary hover:bg-muted transition duration-110  h-9 w-9 cursor-pointer rounded-full flex items-center justify-center">
+                    <ModeToggle className="w-6 cursor-pointer" />
+                  </div>
                 </div>
               </BlurFade>
               {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
@@ -84,7 +118,26 @@ export default function Page() {
           </div>
         </div>
         <hr className="h-px my-8 bg-border border-0" />
-        {/* <div>lol</div> */}
+        <div className="flex  items-center gap-3 text-bold  ">
+          {DATA.socials.map((social, index) => {
+            return (
+              <BlurFade
+                delay={BLUR_FADE_DELAY}
+                className="order-1 md:order-2 key={index}">
+                <Link
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="flex  gap-2 items-center text-muted-foreground hover:text-foreground transition duration-150 justify-center ">
+                    {social.icon && <social.icon className="size-5 " />}
+                    <span>{social.Title}</span>
+                  </div>
+                </Link>
+              </BlurFade>
+            );
+          })}
+        </div>
       </section>
 
       {/* <section id="about">
@@ -165,6 +218,11 @@ export default function Page() {
           <ProjectsSection />
         </BlurFade>
       </section>
+      <section id="Github Activity">
+        <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <GitHubCalendar username={DATA.githubUsername} />
+        </BlurFade>
+      </section>
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
@@ -235,16 +293,17 @@ export default function Page() {
           </div>
         </div>
       </section>
+
       {/* <section id="hackathons">
         <BlurFade delay={BLUR_FADE_DELAY * 13}>
           <HackathonsSection />
         </BlurFade>
       </section> */}
-      <section id="contact">
+      {/* <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <ContactSection />
         </BlurFade>
-      </section>
+      </section> */}
     </main>
   );
 }
