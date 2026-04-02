@@ -11,7 +11,7 @@ export default function ProjectsSection() {
         <div className="flex flex-col gap-y-4 items-center justify-center">
           <div className="flex items-center w-full">
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
-              <h2 className="text-xl font-bold">Projects</h2>
+              <h2 className="text-3xl font-bold">Projects</h2>
             </BlurFade>
             {/* <div className="flex-1 h-px bg-linear-to-r from-transparent from-5% via-border via-95% to-transparent" /> */}
             {/* <div className="border bg-primary z-10 rounded-xl px-4 py-1">

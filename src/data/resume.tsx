@@ -2,9 +2,12 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
-import { Typescript } from "@/components/ui/svgs/typescript";
+import { TypeScript } from "@/components/ui/svgs/typescript";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Python } from "@/components/ui/svgs/python";
+import { MongoDB } from "@/components/ui/svgs/mongodb";
+import { JavaScript } from "@/components/ui/svgs/javascript";
+
 import { Golang } from "@/components/ui/svgs/golang";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -24,19 +27,48 @@ export const DATA = {
     "I'm Open to [freelance projects , collaborations,] and [full-time opportunities.]",
   avatarUrl:
     "https://avatars.githubusercontent.com/u/156004996?s=400&u=5dcec61d6c5641d14381554d81e9380c50cabc2d&v=4",
-  skills: [
-    { name: "React", icon: ReactLight },
-    { name: "Next.js", icon: NextjsIconDark },
-    { name: "Typescript", icon: Typescript },
-    { name: "Node.js", icon: Nodejs },
-    { name: "Python", icon: Python },
-    { name: "Go", icon: Golang },
-    { name: "Postgres", icon: Postgresql },
-    { name: "Docker", icon: Docker },
-    { name: "Kubernetes", icon: Kubernetes },
-    { name: "Java", icon: Java },
-    { name: "C++", icon: Csharp },
-  ],
+  skills: {
+    frontend: [
+      { name: "React", icon: ReactLight },
+      { name: "Next.js", icon: NextjsIconDark },
+      { name: "Javascript", icon: JavaScript },
+      { name: "Python", icon: Python },
+      // { name: "Postgres", icon: Postgresql },
+      // { name: "Docker", icon: Docker },
+      // { name: "Kubernetes", icon: Kubernetes },
+      // { name: "Java", icon: Java },
+      // { name: "C++", icon: Csharp },
+    ],
+    backend: [
+      { name: "Node.js", icon: Nodejs },
+      { name: "MongoDB", icon: MongoDB },
+
+      // { name: "React", icon: ReactLight },
+      // { name: "Next.js", icon: NextjsIconDark },
+      // { name: "Typescript", icon: TypeScript },
+      // { name: "Node.js", icon: Nodejs },
+      // { name: "Python", icon: Python },
+      // { name: "MongoDB", icon: MongoDB },
+      // { name: "Postgres", icon: Postgresql },
+      // { name: "Docker", icon: Docker },
+      // { name: "Kubernetes", icon: Kubernetes },
+      // { name: "Java", icon: Java },
+      // { name: "C++", icon: Csharp },
+    ],
+    tools: [
+      { name: "React", icon: ReactLight },
+      // { name: "Next.js", icon: NextjsIconDark },
+      // { name: "Typescript", icon: TypeScript },
+      // { name: "Node.js", icon: Nodejs },
+      // { name: "Python", icon: Python },
+      // { name: "MongoDB", icon: MongoDB },
+      // { name: "Postgres", icon: Postgresql },
+      // { name: "Docker", icon: Docker },
+      // { name: "Kubernetes", icon: Kubernetes },
+      // { name: "Java", icon: Java },
+      // { name: "C++", icon: Csharp },
+    ],
+  },
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -167,7 +199,7 @@ export const DATA = {
     },
     {
       title: "Restaurant website",
-      href: "https://my-react-app-five-kappa.vercel.app/",
+      href: "https://restaurant-website-blond-phi.vercel.app/",
       dates: "Nov 2025",
       active: false,
       description:
@@ -180,13 +212,13 @@ export const DATA = {
         "CSS",
         "Tailwind CSS",
         "ESLint",
-        "pnpm",
+        "npm",
         "Vercel",
       ],
       links: [
         {
           type: "Website",
-          href: "https://my-react-app-five-kappa.vercel.app/",
+          href: "https://restaurant-website-blond-phi.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -195,7 +227,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/savora.png",
       video: "",
     },
     // {
