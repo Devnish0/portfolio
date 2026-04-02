@@ -4,8 +4,6 @@ import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 
-import { GitHubCalendar } from "react-github-calendar";
-
 import { Dock, DockIcon } from "@/components/magicui/dock";
 
 import { ModeToggle } from "@/components/mode-toggle";
@@ -19,12 +17,13 @@ import {
 
 import Link from "next/link";
 import Markdown from "react-markdown";
-import ContactSection from "@/components/section/contact-section";
+// import ContactSection from "@/components/section/contact-section";
 // import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight, Calendar, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { GitHubActivityCalendar } from "@/components/github-activity-calendar";
 const BLUR_FADE_DELAY = 0.04;
 const Formatter = (str: any) => {
   const parts = str.split(/(\[.*?\])/g);
@@ -73,10 +72,12 @@ export default function Page() {
                     <Calendar size={"16px"} />
                     Book a meet
                   </Button> */}
-                  <Button className="flex  gap-3 cursor-pointer">
-                    <Mail size={"16px"} />
-                    Get in touch
-                  </Button>
+                  <Link href={"mailto:" + DATA.contact.email}>
+                    <Button className="flex  gap-3 cursor-pointer">
+                      <Mail size={"16px"} />
+                      Get in touch
+                    </Button>
+                  </Link>
                   {/* <Dock>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -119,19 +120,21 @@ export default function Page() {
         </div>
         <hr className="h-px my-8 bg-border border-0" />
         <div className="flex  items-center gap-3 text-bold  ">
-          {DATA.socials.map((social, index) => {
+          {DATA.contact.social.map((social, index) => {
             return (
               <BlurFade
                 delay={BLUR_FADE_DELAY}
-                className="order-1 md:order-2 key={index}">
+                className="order-1 md:order-2 "
+                key={index}
+              >
                 <Link
-                  href={social.href}
+                  href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <div className="flex  gap-2 items-center text-muted-foreground hover:text-foreground transition duration-150 justify-center ">
                     {social.icon && <social.icon className="size-5 " />}
-                    <span>{social.Title}</span>
+                    <span>{social.name}</span>
                   </div>
                 </Link>
               </BlurFade>
@@ -219,10 +222,16 @@ export default function Page() {
         </BlurFade>
       </section>
       <section id="Github Activity">
-        <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <GitHubCalendar username={DATA.githubUsername} />
-        </BlurFade>
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <h2 className="text-3xl font-bold">Github Activity</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <GitHubActivityCalendar username={DATA.githubUsername} />
+          </BlurFade>
+        </div>
       </section>
+
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>

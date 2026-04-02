@@ -2,11 +2,14 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
-import { TypeScript } from "@/components/ui/svgs/typescript";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Python } from "@/components/ui/svgs/python";
-import { MongoDB } from "@/components/ui/svgs/mongodb";
-import { JavaScript } from "@/components/ui/svgs/javascript";
+import {
+  TailwindCSS,
+  MongoDB,
+  Nodejs,
+  Python,
+  JavaScript,
+} from "@/components/ui/svgs/skills";
+
 import { FaGithub } from "react-icons/fa";
 
 import { Golang } from "@/components/ui/svgs/golang";
@@ -35,6 +38,8 @@ export const DATA = {
       { name: "Next.js", icon: NextjsIconDark },
       { name: "Javascript", icon: JavaScript },
       { name: "Python", icon: Python },
+      { name: "Tailwind CSS", icon: TailwindCSS },
+
       // { name: "Postgres", icon: Postgresql },
       // { name: "Docker", icon: Docker },
       // { name: "Kubernetes", icon: Kubernetes },
@@ -76,44 +81,37 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
+    email: "nishankgangwar25@gmail.com",
     tel: "+123456789",
-    social: {
-      GitHub: {
+    social: [
+      {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/Devnish0",
         icon: Icons.github,
         navbar: true,
       },
 
-      LinkedIn: {
+      {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/nishank404/",
         icon: Icons.linkedin,
 
         navbar: true,
       },
-      X: {
-        name: "X",
-        url: "https://dub.sh/dillion-twitter",
+      {
+        name: "Twitter",
+        url: "https://x.com/Devnish_",
         icon: Icons.x,
 
         navbar: true,
       },
-      Youtube: {
-        name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
-        icon: Icons.youtube,
-        navbar: true,
-      },
-      email: {
-        name: "Send Email",
-        url: "#",
+      {
+        name: "Email",
+        url: "mailto:nishankgangwar25@gmail.com",
         icon: Icons.email,
-
         navbar: false,
       },
-    },
+    ],
   },
 
   work: [
@@ -128,24 +126,6 @@ export const DATA = {
       end: "Oct 2022",
       description:
         "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
-    },
-  ],
-  socials: [
-    { Title: "GitHub", href: "https://github.com/Devnish0", icon: FaGithub },
-    {
-      Title: "LinkedIn",
-      href: "https://www.linkedin.com/in/dillionverma/",
-      icon: Icons.linkedin,
-    },
-    {
-      Title: "Twitter",
-      href: "https://twitter.com/dillionverma",
-      icon: Icons.x,
-    },
-    {
-      Title: "Email",
-      href: "https://twitter.com/dillionverma",
-      icon: Icons.email,
     },
   ],
   education: [
