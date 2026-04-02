@@ -81,7 +81,7 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "nishankgangwar25@gmail.com",
+    email: "nishank.business@gmail.com",
     tel: "+123456789",
     social: [
       {
@@ -107,7 +107,7 @@ export const DATA = {
       },
       {
         name: "Email",
-        url: "mailto:nishankgangwar25@gmail.com",
+        url: "mailto:nishank.business@gmail.com",
         icon: Icons.email,
         navbar: false,
       },
