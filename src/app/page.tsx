@@ -24,6 +24,7 @@ import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight, Calendar, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GitHubActivityCalendar } from "@/components/github-activity-calendar";
+import SkillIconBadge from "@/components/skill-icon-badge";
 const BLUR_FADE_DELAY = 0.04;
 const Formatter = (str: any) => {
   const parts = str.split(/(\[.*?\])/g);
@@ -249,14 +250,7 @@ export default function Page() {
                 key={skill.name}
                 delay={BLUR_FADE_DELAY * 10 + id * 0.05}
               >
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && (
-                    <skill.icon className="size-4 rounded overflow-hidden object-contain" />
-                  )}
-                  <span className="text-foreground text-sm font-medium">
-                    {skill.name}
-                  </span>
-                </div>
+                <SkillIconBadge name={skill.name} Icon={skill.icon} />
               </BlurFade>
             ))}
           </div>
@@ -269,14 +263,7 @@ export default function Page() {
                 key={skill.name}
                 delay={BLUR_FADE_DELAY * 10 + id * 0.05}
               >
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && (
-                    <skill.icon className="size-4 rounded overflow-hidden object-contain" />
-                  )}
-                  <span className="text-foreground text-sm font-medium">
-                    {skill.name}
-                  </span>
-                </div>
+                <SkillIconBadge name={skill.name} Icon={skill.icon} />
               </BlurFade>
             ))}
           </div>
@@ -289,14 +276,7 @@ export default function Page() {
                 key={skill.name}
                 delay={BLUR_FADE_DELAY * 10 + id * 0.05}
               >
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && (
-                    <skill.icon className="size-4 rounded overflow-hidden object-contain" />
-                  )}
-                  <span className="text-foreground text-sm font-medium">
-                    {skill.name}
-                  </span>
-                </div>
+                <SkillIconBadge name={skill.name} Icon={skill.icon} />
               </BlurFade>
             ))}
           </div>

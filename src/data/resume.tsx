@@ -8,16 +8,27 @@ import {
   Nodejs,
   Python,
   JavaScript,
+  Bootstrap,
+  shadcnui,
+  Mongoose,
+  Expressjs,
 } from "@/components/ui/svgs/skills";
 
 import { FaGithub } from "react-icons/fa";
 
 import { Golang } from "@/components/ui/svgs/golang";
+import { GithubDark } from "@/components/ui/svgs/githubDark";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
+import { Git } from "@/components/ui/svgs/git";
+import { Vscode } from "@/components/ui/svgs/vscode";
+import { OpenaiDark } from "@/components/ui/svgs/openaiDark";
+import { Npm } from "@/components/ui/svgs/npm";
+import { Bun } from "@/components/ui/svgs/bun";
+import { Linux } from "@/components/ui/svgs/linux";
 
 export const DATA = {
   name: "Nishank (Devnish)",
@@ -39,6 +50,8 @@ export const DATA = {
       { name: "Javascript", icon: JavaScript },
       { name: "Python", icon: Python },
       { name: "Tailwind CSS", icon: TailwindCSS },
+      { name: "BootStrap", icon: Bootstrap },
+      { name: "shadcn/ui", icon: shadcnui },
 
       // { name: "Postgres", icon: Postgresql },
       // { name: "Docker", icon: Docker },
@@ -49,6 +62,8 @@ export const DATA = {
     backend: [
       { name: "Node.js", icon: Nodejs },
       { name: "MongoDB", icon: MongoDB },
+      { name: "Mongoose", icon: Mongoose },
+      { name: "Express.js", icon: Expressjs },
 
       // { name: "React", icon: ReactLight },
       // { name: "Next.js", icon: NextjsIconDark },
@@ -64,7 +79,15 @@ export const DATA = {
     ],
     tools: [
       { name: "React", icon: ReactLight },
-      // { name: "Next.js", icon: NextjsIconDark },
+
+      { name: "Github", icon: GithubDark },
+      { name: "Git", icon: Git },
+      { name: "VS Code", icon: Vscode },
+      { name: "ChatGPT", icon: OpenaiDark },
+      { name: "npm", icon: Npm },
+      { name: "Bun", icon: Bun },
+      { name: "linux", icon: Linux },
+
       // { name: "Typescript", icon: TypeScript },
       // { name: "Node.js", icon: Nodejs },
       // { name: "Python", icon: Python },
