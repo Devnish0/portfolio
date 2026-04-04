@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+import { useEffect } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -43,6 +45,18 @@ const Formatter = (str: any) => {
 // console.log(Formatter("Hi, I'm [Nishank]"));
 
 export default function Page() {
+  useEffect(() => {
+    fetch("/api/log", {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  }, []);
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">

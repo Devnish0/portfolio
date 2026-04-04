@@ -17,7 +17,7 @@ import {
 import { FaGithub } from "react-icons/fa";
 
 import { Golang } from "@/components/ui/svgs/golang";
-import { GithubDark } from "@/components/ui/svgs/githubDark";
+import { GithubLight } from "@/components/ui/svgs/githubLight";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
@@ -25,6 +25,7 @@ import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
 import { Git } from "@/components/ui/svgs/git";
 import { Vscode } from "@/components/ui/svgs/vscode";
+import { Openai } from "@/components/ui/svgs/openai";
 import { OpenaiDark } from "@/components/ui/svgs/openaiDark";
 import { Npm } from "@/components/ui/svgs/npm";
 import { Bun } from "@/components/ui/svgs/bun";
@@ -78,12 +79,10 @@ export const DATA = {
       // { name: "C++", icon: Csharp },
     ],
     tools: [
-      { name: "React", icon: ReactLight },
-
-      { name: "Github", icon: GithubDark },
+      { name: "Github", icon: GithubLight },
       { name: "Git", icon: Git },
       { name: "VS Code", icon: Vscode },
-      { name: "ChatGPT", icon: OpenaiDark },
+      { name: "ChatGPT", icon: Openai },
       { name: "npm", icon: Npm },
       { name: "Bun", icon: Bun },
       { name: "linux", icon: Linux },
