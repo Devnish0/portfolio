@@ -14,7 +14,7 @@ export async function POST(request) {
     const userAgent = request.headers.get("user-agent") || "";
 
     // 🚫 Basic bot filter
-    if (/bot|crawl|spider/i.test(userAgent)) {
+    if (/bot|crawl|spider|vercel-screenshot/i.test(userAgent)) {
       return NextResponse.json({ bot: true });
     }
 
