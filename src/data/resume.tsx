@@ -186,6 +186,81 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "intiger",
+      href: "https://intiger.nishank.dev",
+      dates: "Jan 2026 - Feb 2026",
+      active: true,
+      description:
+        "Twitter-like full-stack web app built with Node.js, Express, MongoDB, and React (Vite), featuring CRUD posts, likes, and comments. Implemented JWT authentication, Cloudinary media uploads, and REST APIs with a responsive Tailwind UI.",
+      technologies: [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "JWT (JSON Web Tokens)",
+        "React",
+        "Vite",
+        "React Router",
+        "Tailwind CSS",
+        "Resend (Email API)",
+        "Cloudinary",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://intiger.nishank.dev",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/Devnish0/intiger",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/intiger.png",
+
+      video: "",
+    },
+    {
+      title: "Minimal Notes",
+      href: "https://minimalnotes.nishank.dev/",
+      dates: "Sept 2025 - Oct 2025",
+      active: true,
+      description:
+        "A simple, responsive web-based notes application built with vanilla HTML, CSS, and JavaScript. Create, edit, and manage your notes with a clean and intuitive interface built using the localStorage api",
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "JavaScript (ES Modules)",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "ESLint",
+        "Node.js / npm",
+        "localStorage API",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://minimalnotes.nishank.dev/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        // Add a GitHub link here if you have one, e.g.:
+        {
+          type: "Source",
+          href: "https://github.com/Devnish0/reactNotes",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/minimalnotes.png",
+
+      video: "",
+    },
+
+    {
       title: "Tourist Safety Web App",
       href: "https://hackathon-kappa-seven.vercel.app/home.html",
       dates: "Sept 2025 - Oct 2025",
