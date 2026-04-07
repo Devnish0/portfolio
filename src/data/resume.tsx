@@ -120,13 +120,13 @@ export const DATA = {
 
         navbar: true,
       },
-      {
-        name: "Twitter",
-        url: "https://x.com/Devnish_",
-        icon: Icons.x,
+      // {
+      //   name: "Twitter",
+      //   url: "https://x.com/Devnish_",
+      //   icon: Icons.x,
 
-        navbar: true,
-      },
+      //   navbar: true,
+      // },
       {
         name: "Email",
         url: "mailto:nishank.business@gmail.com",
