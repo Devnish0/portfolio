@@ -5,6 +5,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
+import { BasicLabel } from "@/components/chart";
 
 import { Dock, DockIcon } from "@/components/magicui/dock";
 
@@ -140,9 +141,9 @@ export default function Page() {
                       </TooltipContent>
                     </Tooltip>
                   </Dock> */}
-                  <div className="border border-primary hover:bg-muted transition duration-110  h-9 w-9 cursor-pointer rounded-full flex items-center justify-center">
+                  {/* <div className="border border-primary hover:bg-muted transition duration-110  h-9 w-9 cursor-pointer rounded-full flex items-center justify-center">
                     <ModeToggle className="w-6 cursor-pointer" />
-                  </div>
+                  </div> */}
                 </div>
               </BlurFade>
               {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
@@ -279,6 +280,19 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+
+      {/* <section id="Github Activity">
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <h2 className="text-3xl font-bold">Stats</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            {/* <GitHubActivityCalendar username={DATA.githubUsername} /> */}
+      {/* <BasicLabel /> */}
+      {/* <BasicLabel className="rounded-xl border border-border bg-muted/40 p-4 shadow-sm " /> */}
+      {/* </BlurFade> */}
+      {/* </div> */}
+      {/* </section>  */}
 
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
