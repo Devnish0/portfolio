@@ -259,7 +259,6 @@ export const DATA = {
 
       video: "",
     },
-
     {
       title: "Tourist Safety Web App",
       href: "https://hackathon-kappa-seven.vercel.app/home.html",

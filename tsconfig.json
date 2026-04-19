@@ -37,7 +37,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/components/section/projects-section.jsx", "src/app/layout.jsx"  ],
   "exclude": [
     "node_modules"
   ]

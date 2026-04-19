@@ -1,9 +1,9 @@
-import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
+import { Navbar } from "@/components/section/navbar";
+// import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL(DATA.url),
   title: {
     default: DATA.name,
@@ -56,11 +56,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -84,10 +80,12 @@ export default function RootLayout({
                 }}
               />
             </div>
-            <div className="relative z-10 max-w-3xl mx-auto py-12 pb-24 sm:py-24 px-6">
+            <div className="relative z-10 max-w-3xl mx-auto py-12 sm:py-24 px-6 pb-22">
               {children}
             </div>
-            {/* <Navbar /> */}
+            <div className="pb-10">
+              <Navbar />
+            </div>
           </TooltipProvider>
         </ThemeProvider>
       </body>

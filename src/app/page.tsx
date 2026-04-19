@@ -1,11 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-import { useEffect, useState } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
-
+import { useRouter } from "next/navigation";
 import { ModeToggle } from "@/components/mode-toggle";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -34,38 +32,8 @@ const Formatter = (str: any) => {
 };
 // console.log(Formatter("Hi, I'm [Nishank]"));
 
-let visitor = 99;
 export default function Page() {
-  useEffect(() => {
-    fetch("/api/log", {
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-    (async () => {
-      // The original code only fetches and logs the Response object, not the actual data.
-      // You need to call .json() on the response to get the data.
-      const response = await fetch("/api/visitorcount");
-      const data = await response.json();
-
-      if (data.success) {
-        const { totalVisits, uniqueVisitors } = data;
-        console.log(totalVisits, uniqueVisitors);
-        setTotalVisits(totalVisits);
-        setuniqueVisitor(uniqueVisitors);
-      }
-    })();
-    //
-  }, []);
-
-  const [totalVisits, setTotalVisits] = useState();
-  const [uniqueVisitor, setuniqueVisitor] = useState();
-
+  const router = useRouter();
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">
@@ -90,10 +58,10 @@ export default function Page() {
               </div>
 
               {/* <BlurFadeText
-                className="text-muted-foreground max-w-150 md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              /> */}
+              className="text-muted-foreground max-w-150 md:text-lg lg:text-xl"
+              delay={BLUR_FADE_DELAY}
+              text={DATA.description}
+            /> */}
               <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
                 <div className="text-muted-foreground max-w-150 md:text-lg lg:text-xl">
                   {Formatter(DATA.description)}
@@ -104,9 +72,9 @@ export default function Page() {
                 <div className="text-muted-foreground max-w-150 mt-3 md:text-lg lg:text-xl flex justify-between  gap-4">
                   {/* make it working later */}
                   {/* <Button variant={"outline"} className="flex gap-3">
-                    <Calendar size={"16px"} />
-                    Book a meet
-                  </Button> */}
+                  <Calendar size={"16px"} />
+                  Book a meet
+                </Button> */}
                   <Link href={"mailto:" + DATA.contact.email}>
                     <Button className="flex  gap-3 cursor-pointer">
                       <Mail size={"16px"} />
@@ -114,32 +82,32 @@ export default function Page() {
                     </Button>
                   </Link>
                   {/* <Dock>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
-                          <ModeToggle className="size-full cursor-pointer" />
-                        </DockIcon>
-                      </TooltipTrigger>
-                      <TooltipContent
-                        side="top"
-                        sideOffset={8}
-                        className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
-                      >
-                        <p>Theme</p>
-                        <TooltipArrow className="fill-primary" />
-                      </TooltipContent>
-                    </Tooltip>
-                  </Dock> */}
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
+                        <ModeToggle className="size-full cursor-pointer" />
+                      </DockIcon>
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="top"
+                      sideOffset={8}
+                      className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+                    >
+                      <p>Theme</p>
+                      <TooltipArrow className="fill-primary" />
+                    </TooltipContent>
+                  </Tooltip>
+                </Dock> */}
                   {/* <div className="border border-primary hover:bg-muted transition duration-110  h-9 w-9 cursor-pointer rounded-full flex items-center justify-center">
-                    <ModeToggle className="w-6 cursor-pointer" />
-                  </div> */}
+                  <ModeToggle className="w-6 cursor-pointer" />
+                </div> */}
                 </div>
               </BlurFade>
               {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
-                <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-                  <Markdown>{DATA.summary}</Markdown>
-                </div>
-              </BlurFade> */}
+              <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+                <Markdown>{DATA.summary}</Markdown>
+              </div>
+            </BlurFade> */}
               {/* <BlurFade delay={BLUR_FADE_DELAY * 3}> */}
               {/* <h2 className="text-xl font-bold">About</h2> */}
               {/* </BlurFade> */}
@@ -182,82 +150,101 @@ export default function Page() {
       </section>
 
       {/* <section id="about">
-        <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-xl font-bold">About</h2>
-          </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-              <Markdown>{DATA.summary}</Markdown>
-            </div>
-          </BlurFade>
-        </div>
-      </section> */}
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <h2 className="text-xl font-bold">About</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+            <Markdown>{DATA.summary}</Markdown>
+          </div>
+        </BlurFade>
+      </div>
+    </section> */}
       {/* <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-6">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
-          </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <WorkSection />
-          </BlurFade>
-        </div>
-      </section> */}
+      <div className="flex min-h-0 flex-col gap-y-6">
+        <BlurFade delay={BLUR_FADE_DELAY * 5}>
+          <h2 className="text-xl font-bold">Work Experience</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 6}>
+          <WorkSection />
+        </BlurFade>
+      </div>
+    </section> */}
       {/* <section id="education">
-        <div className="flex min-h-0 flex-col gap-y-6">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
-          </BlurFade>
-          <div className="flex flex-col gap-8">
-            {DATA.education.map((education, index) => (
-              <BlurFade
-                key={education.school}
-                delay={BLUR_FADE_DELAY * 8 + index * 0.05}
+      <div className="flex min-h-0 flex-col gap-y-6">
+        <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <h2 className="text-xl font-bold">Education</h2>
+        </BlurFade>
+        <div className="flex flex-col gap-8">
+          {DATA.education.map((education, index) => (
+            <BlurFade
+              key={education.school}
+              delay={BLUR_FADE_DELAY * 8 + index * 0.05}
+            >
+              <Link
+                href={education.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-x-3 justify-between group"
               >
-                <Link
-                  href={education.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-x-3 justify-between group"
-                >
-                  <div className="flex items-center gap-x-3 flex-1 min-w-0">
-                    {education.logoUrl ? (
-                      <img
-                        src={education.logoUrl}
-                        alt={education.school}
-                        className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
+                <div className="flex items-center gap-x-3 flex-1 min-w-0">
+                  {education.logoUrl ? (
+                    <img
+                      src={education.logoUrl}
+                      alt={education.school}
+                      className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
+                    />
+                  ) : (
+                    <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
+                  )}
+                  <div className="flex-1 min-w-0 flex flex-col gap-0.5">
+                    <div className="font-semibold leading-none flex items-center gap-2">
+                      {education.school}
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
+                        aria-hidden
                       />
-                    ) : (
-                      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
-                    )}
-                    <div className="flex-1 min-w-0 flex flex-col gap-0.5">
-                      <div className="font-semibold leading-none flex items-center gap-2">
-                        {education.school}
-                        <ArrowUpRight
-                          className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
-                          aria-hidden
-                        />
-                      </div>
-                      <div className="font-sans text-sm text-muted-foreground">
-                        {education.degree}
-                      </div>
+                    </div>
+                    <div className="font-sans text-sm text-muted-foreground">
+                      {education.degree}
                     </div>
                   </div>
-                  <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
-                    <span>
-                      {education.start} - {education.end}
-                    </span>
-                  </div>
-                </Link>
-              </BlurFade>
-            ))}
-          </div>
+                </div>
+                <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
+                  <span>
+                    {education.start} - {education.end}
+                  </span>
+                </div>
+              </Link>
+            </BlurFade>
+          ))}
         </div>
-      </section> */}
+      </div>
+    </section> */}
       <section id="projects">
+        <div className="flex items-center w-full mb-5">
+          <BlurFade delay={BLUR_FADE_DELAY * 3}>
+            <h2 className="text-3xl font-bold">Projects</h2>
+          </BlurFade>
+        </div>
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
+          <ProjectsSection DATA={DATA.projects.slice(0, 4)} />
         </BlurFade>
+        {DATA.projects.length > 4 && (
+          <BlurFade
+            delay={BLUR_FADE_DELAY * 11}
+            className="mt-10 flex items-center justify-center"
+          >
+            <Button
+              variant={"outline"}
+              className="flex gap-3 cursor-pointer"
+              onClick={() => router.push("/projects")}
+            >
+              <span>View All Projects</span>
+            </Button>
+          </BlurFade>
+        )}
       </section>
       <section id="Github Activity">
         <div className="flex min-h-0 flex-col gap-y-4">
@@ -271,12 +258,12 @@ export default function Page() {
       </section>
 
       {/* <section id="Github Activity">
-        <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-3xl font-bold">Stats</h2>
-          </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            {/* <GitHubActivityCalendar username={DATA.githubUsername} /> */}
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <h2 className="text-3xl font-bold">Stats</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          {/* <GitHubActivityCalendar username={DATA.githubUsername} /> */}
       {/* <BasicLabel /> */}
       {/* <BasicLabel className="rounded-xl border border-border bg-muted/40 p-4 shadow-sm " /> */}
       {/* </BlurFade> */}
@@ -331,40 +318,6 @@ export default function Page() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* <section id="hackathons">
-        <BlurFade delay={BLUR_FADE_DELAY * 13}>
-          <HackathonsSection />
-        </BlurFade>
-      </section> */}
-      {/* <section id="contact">
-        <BlurFade delay={BLUR_FADE_DELAY * 16}>
-          <ContactSection />
-        </BlurFade>
-      </section> */}
-      <section id="footer">
-        <BlurFade delay={BLUR_FADE_DELAY * 12} className="order-1 md:order-2">
-          <hr className="h-px my-8 bg-border border-0" />
-          <div className="w-full grid sm:grid-cols-2 text-muted-foreground/70 text-sm grid-cols-1">
-            <span className=" flex items-center  justify-center  ">
-              {/* <p className="text-linear-to-b from-red-100 to-blue-500 "></p> */}
-              © 2026 Nishank Gangwar. All rights reserved.
-            </span>
-            <span className=" flex items-center justify-center  ">
-              You are the{" "}
-              <span className="mx-1 text-muted-foreground text-[15px]">
-                {uniqueVisitor}
-                <sup>th</sup>
-              </span>
-              visitor in the total of{" "}
-              <span className="mx-1 text-muted-foreground text-[15px]">
-                {totalVisits}
-              </span>
-              visits
-            </span>{" "}
-          </div>
-        </BlurFade>
       </section>
     </main>
   );
